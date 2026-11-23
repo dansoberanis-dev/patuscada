@@ -150,7 +150,7 @@
 
         <a class="btn btn-gold header-cta" href="https://wa.me/5541998339925?text=Ol%C3%A1!%20Quero%20fazer%20uma%20reserva%20no%20Patuscada." target="_blank" rel="noopener">Reservar mesa</a>
 
-        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu" onclick="var m=document.querySelector('[data-mobile-menu]');var o=m.classList.toggle('is-open');this.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';">
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu" onclick="try{var m=document.querySelector('[data-mobile-menu]');console.log('Menu element:',m);if(!m){alert('Menu não encontrado!');return;}var o=m.classList.toggle('is-open');console.log('is-open:',o);this.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';console.log('Menu toggled successfully');}catch(e){console.error('Erro no menu:',e);alert('Erro: '+e.message);}">
           <span></span>
           <span></span>
           <span></span>
