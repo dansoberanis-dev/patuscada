@@ -778,45 +778,62 @@
 
   
 <script>
-// Efeito ping-pong suave para vídeos do hero
+// Efeito ping-pong suave para vídeos do hero - DEBUG VERSION
 (function() {
-  function setupPingPongVideo(videoElement) {
-    if (!videoElement) return;
+  console.log('🎬 Ping-pong script iniciado');
+  
+  function setupPingPongVideo(videoElement, videoName) {
+    if (!videoElement) {
+      console.log('❌ Vídeo ' + videoName + ' não encontrado');
+      return;
+    }
+    
+    console.log('✅ Vídeo ' + videoName + ' encontrado, configurando ping-pong');
     
     var isReversing = false;
     
     videoElement.addEventListener('timeupdate', function() {
       // Quando chegar perto do fim (últimos 0.5 segundos)
       if (!isReversing && videoElement.currentTime >= videoElement.duration - 0.5) {
+        console.log('🔄 ' + videoName + ' chegando ao fim, invertendo...');
         isReversing = true;
         videoElement.playbackRate = 0.5;
         setTimeout(function() {
           videoElement.playbackRate = -1;
+          console.log('⏪ ' + videoName + ' tocando reverso');
         }, 200);
       }
       
       // Quando voltar perto do início (primeiros 0.5 segundos)
       if (isReversing && videoElement.currentTime <= 0.5) {
+        console.log('🔄 ' + videoName + ' chegando ao início, voltando para frente...');
         isReversing = false;
         videoElement.playbackRate = -0.5;
         setTimeout(function() {
           videoElement.playbackRate = 1;
+          console.log('▶️ ' + videoName + ' tocando para frente');
         }, 200);
       }
     });
     
     videoElement.playbackRate = 1;
+    console.log('✅ ' + videoName + ' configurado com sucesso');
   }
   
   // Aplicar quando o DOM estiver pronto
+  function init() {
+    console.log('🔍 Procurando vídeos...');
+    var desktop = document.querySelector('.video-desktop');
+    var mobile = document.querySelector('.video-mobile');
+    
+    setupPingPongVideo(desktop, 'Desktop');
+    setupPingPongVideo(mobile, 'Mobile');
+  }
+  
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setupPingPongVideo(document.querySelector('.video-desktop'));
-      setupPingPongVideo(document.querySelector('.video-mobile'));
-    });
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    setupPingPongVideo(document.querySelector('.video-desktop'));
-    setupPingPongVideo(document.querySelector('.video-mobile'));
+    init();
   }
 })();
 </script>
