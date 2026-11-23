@@ -160,13 +160,16 @@
 
     <!-- Menu mobile -->
     <nav class="mobile-menu" id="menu-mobile" data-mobile-menu aria-label="Menu móvel">
-      <a href="#inicio" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Início</a>
-      <a href="#agenda" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Agenda</a>
-      <a href="#cardapio" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Cardápio</a>
-      <a href="#galeria" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Galeria</a>
-      <a href="#visita" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Visita</a>
-      <a href="#reserva" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Reserva</a>
-      <a class="mobile-cta" href="https://wa.me/5541998339925?text=Ol%C3%A1!%20Quero%20fazer%20uma%20reserva%20no%20Patuscada." target="_blank" rel="noopener" onclick="document.querySelector(\'[data-mobile-menu]\').classList.remove(\'is-open\');document.querySelector(\'[data-menu-toggle]\').setAttribute(\'aria-expanded\',\'false\');document.body.style.overflow=\'\';">Reservar mesa no WhatsApp</a>
+      <button type="button" class="menu-close" aria-label="Fechar menu" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">
+        <span>×</span>
+      </button>
+      <a href="#inicio" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Início</a>
+      <a href="#agenda" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Agenda</a>
+      <a href="#cardapio" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Cardápio</a>
+      <a href="#galeria" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Galeria</a>
+      <a href="#visita" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Visita</a>
+      <a href="#reserva" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Reserva</a>
+      <a class="mobile-cta" href="https://wa.me/5541998339925?text=Ol%C3%A1!%20Quero%20fazer%20uma%20reserva%20no%20Patuscada." target="_blank" rel="noopener" onclick="document.querySelector('[data-mobile-menu]').classList.remove('is-open');document.querySelector('[data-menu-toggle]').setAttribute('aria-expanded','false');document.body.style.overflow='';">Reservar mesa no WhatsApp</a>
     </nav>
 
     <main id="conteudo">
