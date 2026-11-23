@@ -174,7 +174,7 @@
       <!-- Hero: vídeo com imagem de fallback, sem texto sobreposto -->
       <section class="hero" id="inicio" aria-label="Vídeo do palco do Patuscada Bar e Cultura">
         <video
-          class="hero-video"
+          class="hero-video video-desktop"
           data-hero-video
           autoplay
           muted
@@ -186,6 +186,20 @@
           tabindex="-1"
         >
           <source src="/assets/video/patuscada-hero.mp4" type="video/mp4" />
+        </video>
+        <video
+          class="hero-video video-mobile"
+          data-hero-video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="/assets/images/hero-palco-neon.webp"
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          <source src="/assets/video/hero-mobile.mp4" type="video/mp4" />
         </video>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-mosaic" aria-hidden="true"></div>

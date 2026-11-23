@@ -34,3 +34,7 @@
 @media (width>=900px){.mobile-menu{display:none!important}}
 
 @media (width<900px){.mobile-menu{display:flex!important}}
+
+.video-mobile{display:none}
+.video-desktop{display:block}
+@media (width<900px){.video-desktop{display:none!important}.video-mobile{display:block!important}}
