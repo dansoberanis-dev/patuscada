@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Menu Mobile</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: sans-serif; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        iframe { width: 100%; height: 600px; border: 2px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Teste do Menu Mobile</h1>
+    <div id="results"></div>
+    <iframe id="site" src="index.html"></iframe>
+    
+    <script>
+        const results = document.getElementById('results');
+        const iframe = document.getElementById('site');
+        
+        function addResult(test, passed, details = '') {
+            const div = document.createElement('div');
+            div.className = 'test-result ' + (passed ? 'pass' : 'fail');
+            div.textContent = (passed ? '✓' : '✗') + ' ' + test + (details ? ': ' + details : '');
+            results.appendChild(div);
+        }
+        
+        iframe.onload = function() {
+            const doc = iframe.contentDocument;
+            
+            // Teste 1: Botão do menu existe
+            const menuToggle = doc.querySelector('[data-menu-toggle]');
+            addResult('Botão do menu existe', !!menuToggle);
+            
+            // Teste 2: Nav do menu existe
+            const menuNav = doc.querySelector('[data-mobile-menu]');
+            addResult('Nav do menu existe', !!menuNav);
+            
+            // Teste 3: Menu está inicialmente escondido
+            if (menuNav) {
+                const style = doc.defaultView.getComputedStyle(menuNav);
+                const isHidden = style.transform.includes('translateY(-') || style.display === 'none';
+                addResult('Menu está escondido inicialmente', isHidden, 'transform: ' + style.transform);
+            }
+            
+            // Teste 4: Simular clique no botão
+            if (menuToggle) {
+                menuToggle.click();
+                
+                setTimeout(() => {
+                    const style = doc.defaultView.getComputedStyle(menuNav);
+                    const isOpen = menuNav.classList.contains('is-open');
+                    const isVisible = style.transform.includes('translateY(0)') || !style.transform.includes('translateY(-');
+                    
+                    addResult('Classe is-open adicionada após clique', isOpen);
+                    addResult('Menu está visível após clique', isVisible, 'transform: ' + style.transform);
+                    
+                    // Teste 5: Fechar menu clicando em link
+                    const firstLink = menuNav.querySelector('a');
+                    if (firstLink) {
+                        firstLink.click();
+                        
+                        setTimeout(() => {
+                            const isClosed = !menuNav.classList.contains('is-open');
+                            addResult('Menu fecha ao clicar em link', isClosed);
+                        }, 500);
+                    }
+                }, 500);
+            }
+        };
+    </script>
+</body>
+</html>
