@@ -1,0 +1,83 @@
+{
+  "semanaTitulo": "Programação Cultural da Semana",
+  "observacao": "Cultura viva no casarão da Praça João Cândido. Chegue cedo para garantir sua mesa!",
+  "eventos": [
+    {
+      "id": "quarta-espetaculosa",
+      "diaSemana": "Quarta Espetaculosa",
+      "data": "25 de Novembro",
+      "horario": "20h",
+      "artista": "Areia Branca",
+      "subtitulo": "Samba, brasilidades e abertura da semana em grande estilo",
+      "corTema": "laranja",
+      "imagem": "/assets/images/gallery/roda-de-samba-palco.webp",
+      "alt": "Grupo musical apresentando roda de samba ao vivo no palco iluminado do Patuscada em Curitiba"
+    },
+    {
+      "id": "quinta-samba-raiz",
+      "diaSemana": "Quinta Samba de Raiz",
+      "data": "26 de Novembro",
+      "horario": "20h",
+      "artista": "Grupo Caxambu",
+      "subtitulo": "Clássicos do samba de raiz para cantar junto do início ao fim",
+      "corTema": "vermelho",
+      "imagem": "/assets/images/gallery/cantor-ao-vivo-patuscada.webp",
+      "alt": "Vocalista cantando samba ao vivo com público animado no Bar Patuscada"
+    },
+    {
+      "id": "sexta-batuscada",
+      "diaSemana": "Sexta Batuscada",
+      "data": "27 de Novembro",
+      "horario": "22h",
+      "artista": "Sapataria da Gabi",
+      "subtitulo": "Batuscada brasileira, percussão pulsante e pista cheia de energia",
+      "corTema": "roxo",
+      "imagem": "/assets/images/gallery/fita-colorida-festa.webp",
+      "alt": "Salão do Patuscada decorado com fitas coloridas no teto e público curtindo show de sexta-feira"
+    },
+    {
+      "id": "sabado-caipira",
+      "diaSemana": "Sábado Caipira",
+      "data": "28 de Novembro",
+      "horario": "18h",
+      "artista": "Roda Caipira",
+      "subtitulo": "Viola, sanfona e modas tradicionais no fim de tarde do São Francisco",
+      "corTema": "verde",
+      "imagem": "/assets/images/gallery/musica-instrumental-detalhe.webp",
+      "alt": "Detalhe de músico tocando instrumento de cordas durante apresentação ao vivo no Patuscada"
+    },
+    {
+      "id": "sabado-especial",
+      "diaSemana": "Sábado Especial Patuscada",
+      "data": "28 de Novembro",
+      "horario": "22h",
+      "artista": "O Bloco & Convidados",
+      "subtitulo": "Folia de carnaval fora de época, marchinhas e ritmos populares",
+      "corTema": "azul",
+      "imagem": "/assets/images/gallery/publico-casa-cheia.webp",
+      "alt": "Público reunido nas mesas e salão cheio durante noite especial no Bar Patuscada"
+    },
+    {
+      "id": "domingo-almoco",
+      "diaSemana": "Domingo Almoço Cultural",
+      "data": "29 de Novembro",
+      "horario": "13h",
+      "artista": "Proleta & Choro Cruzado",
+      "subtitulo": "Chorinho e samba acompanhando moqueca, macarronada e bife a rolezão",
+      "corTema": "amarelo",
+      "imagem": "/assets/images/gallery/palco-instrumentos-neon.webp",
+      "alt": "Palco de madeira do Patuscada preparado com instrumentos musicais e letreiro neon colorido"
+    },
+    {
+      "id": "domingueira",
+      "diaSemana": "Domingueira Patuscada",
+      "data": "29 de Novembro",
+      "horario": "18h",
+      "artista": "Grupo Canjão",
+      "subtitulo": "Pagode e roda animada para fechar o domingo com chave de ouro",
+      "corTema": "magenta",
+      "imagem": "/assets/images/gallery/noite-intimista-neon.webp",
+      "alt": "Apresentação musical noturna sob bandeirinhas e letreiro neon do Patuscada"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloqueia páginas transacionais de indexação desnecessária
+Disallow: /obrigado
+Disallow: /obrigado.html
+
+Sitemap: https://patuscada.com.br/sitemap.xml
