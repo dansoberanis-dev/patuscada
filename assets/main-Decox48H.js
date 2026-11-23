@@ -3,3 +3,43 @@ var vd=document.querySelector(`.video-desktop`),vm=document.querySelector(`.vide
 function pauseInvisibleVideo(){var w=window.innerWidth;if(w<900){if(vd&&!vd.paused)vd.pause();if(vm&&vm.paused)vm.play().catch(function(){})}else{if(vm&&!vm.paused)vm.pause();if(vd&&vd.paused)vd.play().catch(function(){})}}
 window.addEventListener(`resize`,pauseInvisibleVideo);
 pauseInvisibleVideo();
+
+// Efeito ping-pong suave para vídeos do hero
+function setupPingPongVideo(videoElement) {
+  if (!videoElement) return;
+  
+  var isReversing = false;
+  var transitionDuration = 0.3; // segundos para suavizar a transição
+  
+  videoElement.addEventListener('timeupdate', function() {
+    // Quando chegar perto do fim (últimos 0.5 segundos)
+    if (!isReversing && videoElement.currentTime >= videoElement.duration - 0.5) {
+      isReversing = true;
+      // Suavizar a transição reduzindo velocidade gradualmente
+      videoElement.playbackRate = 0.5;
+      setTimeout(function() {
+        videoElement.playbackRate = -1; // Inverter direção
+      }, 200);
+    }
+    
+    // Quando voltar perto do início (primeiros 0.5 segundos)
+    if (isReversing && videoElement.currentTime <= 0.5) {
+      isReversing = false;
+      // Suavizar a transição reduzindo velocidade gradualmente
+      videoElement.playbackRate = -0.5;
+      setTimeout(function() {
+        videoElement.playbackRate = 1; // Voltar para frente
+      }, 200);
+    }
+  });
+  
+  // Garantir que o vídeo comece tocando para frente
+  videoElement.playbackRate = 1;
+}
+
+// Aplicar em ambos os vídeos
+var videoDesktop = document.querySelector('.video-desktop');
+var videoMobile = document.querySelector('.video-mobile');
+
+setupPingPongVideo(videoDesktop);
+setupPingPongVideo(videoMobile);
