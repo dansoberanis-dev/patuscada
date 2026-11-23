@@ -776,5 +776,50 @@
       </div>
     </div>
 
-  <!-- Force redeploy -->`n</body>
+  
+<script>
+// Efeito ping-pong suave para vídeos do hero
+(function() {
+  function setupPingPongVideo(videoElement) {
+    if (!videoElement) return;
+    
+    var isReversing = false;
+    
+    videoElement.addEventListener('timeupdate', function() {
+      // Quando chegar perto do fim (últimos 0.5 segundos)
+      if (!isReversing && videoElement.currentTime >= videoElement.duration - 0.5) {
+        isReversing = true;
+        videoElement.playbackRate = 0.5;
+        setTimeout(function() {
+          videoElement.playbackRate = -1;
+        }, 200);
+      }
+      
+      // Quando voltar perto do início (primeiros 0.5 segundos)
+      if (isReversing && videoElement.currentTime <= 0.5) {
+        isReversing = false;
+        videoElement.playbackRate = -0.5;
+        setTimeout(function() {
+          videoElement.playbackRate = 1;
+        }, 200);
+      }
+    });
+    
+    videoElement.playbackRate = 1;
+  }
+  
+  // Aplicar quando o DOM estiver pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setupPingPongVideo(document.querySelector('.video-desktop'));
+      setupPingPongVideo(document.querySelector('.video-mobile'));
+    });
+  } else {
+    setupPingPongVideo(document.querySelector('.video-desktop'));
+    setupPingPongVideo(document.querySelector('.video-mobile'));
+  }
+})();
+</script>
+
+</body>
 </html>
