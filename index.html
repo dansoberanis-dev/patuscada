@@ -178,8 +178,7 @@
           data-hero-video
           autoplay
           muted
-          loop
-          playsinline
+          playsinline loop
           preload="auto"
           poster="/assets/images/hero-palco-neon.webp"
           aria-hidden="true"
@@ -192,8 +191,7 @@
           data-hero-video
           autoplay
           muted
-          loop
-          playsinline
+          playsinline loop
           preload="auto"
           poster="/assets/images/hero-palco-neon.webp"
           aria-hidden="true"
@@ -775,59 +773,5 @@
         <button class="btn btn-dark" type="button" data-cookie-decline>Recusar</button>
       </div>
     </div>
-
-  
-<script>
-// Efeito ping-pong suave usando currentTime (playbackRate negativo não é suportado)
-(function() {
-  function setupPingPongVideo(videoElement, videoName) {
-    if (!videoElement) return;
-    
-    var isReversing = false;
-    var reverseSpeed = 1.0; // velocidade de reversão (1x = velocidade normal)
-    var lastTime = 0;
-    var rafId = null;
-    
-    function reverseStep() {
-      if (!isReversing) return;
-      var now = performance.now();
-      var delta = (now - lastTime) / 1000;
-      lastTime = now;
-      
-      videoElement.currentTime -= delta * reverseSpeed;
-      
-      if (videoElement.currentTime <= 0.1) {
-        videoElement.currentTime = 0;
-        isReversing = false;
-        videoElement.playbackRate = 1;
-        videoElement.play().catch(function(){});
-        return;
-      }
-      rafId = requestAnimationFrame(reverseStep);
-    }
-    
-    videoElement.addEventListener('timeupdate', function() {
-      if (!isReversing && videoElement.duration && videoElement.currentTime >= videoElement.duration - 0.3) {
-        isReversing = true;
-        videoElement.pause();
-        lastTime = performance.now();
-        rafId = requestAnimationFrame(reverseStep);
-      }
-    });
-    
-    videoElement.playbackRate = 1;
-  }
-  
-  function init() {
-    setupPingPongVideo(document.querySelector('.video-desktop'), 'Desktop');
-    setupPingPongVideo(document.querySelector('.video-mobile'), 'Mobile');
-  }
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script></body>
+</body>
 </html>
